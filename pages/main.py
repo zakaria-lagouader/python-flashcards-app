@@ -1,5 +1,5 @@
 from .home import HomePage
-from .flashcard import ShowFlashCard, AddFlashCard, EditFlashCard
+from .flashcard import ShowFlashCard, AddFlashCard, EditFlashCard, TestCards
 from .card import AddCard, ShowCard, EditCard
 import customtkinter
 
@@ -23,6 +23,7 @@ class App(customtkinter.CTk):
             "showflashCard": ShowFlashCard,
             "addflashCard": AddFlashCard,
             "editflashCard": EditFlashCard,
+            "testCards": TestCards,
             "addCard": AddCard,
             "showCard": ShowCard,
             "editCard": EditCard,

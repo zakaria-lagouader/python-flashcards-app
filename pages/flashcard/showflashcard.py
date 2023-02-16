@@ -2,7 +2,7 @@ from tkinter.messagebox import askyesno
 import customtkinter
 
 
-class ShowFlashCard(customtkinter.CTkFrame):
+class ShowFlashCard(customtkinter.CTkScrollableFrame):
     def __init__(self, master, flashcard, **kwargs):
         super().__init__(master, **kwargs)
 
@@ -78,13 +78,30 @@ class ShowFlashCard(customtkinter.CTkFrame):
         cards = self.flashcard.cards()
 
         if cards != None:
+
+            self.test_button = customtkinter.CTkButton(
+                master=self, 
+                text="Start the test",
+                command=self.startTest
+            )
+
+            self.test_button.grid(
+                row=2,
+                column=0,
+                columnspan=3,
+                sticky="ew",
+                ipady=8,
+                pady=10, 
+                padx=10 
+            )
+
             self.cards_list = CardsList(
                 master=self,
                 cards=cards
             )
 
             self.cards_list.grid(
-                row=2,
+                row=3,
                 column=0,
                 columnspan=3,
                 sticky="ew",
@@ -98,7 +115,7 @@ class ShowFlashCard(customtkinter.CTkFrame):
         )
 
         self.back_button.grid(
-            row=3,
+            row=4,
             column=0,
             columnspan=3,
             sticky="ew",
@@ -130,6 +147,10 @@ class ShowFlashCard(customtkinter.CTkFrame):
     def backHome(self):
         from pages import goTo
         goTo("home")
+
+    def startTest(self):
+        from pages import goTo
+        goTo("testCards", self.flashcard)
 
 
 
