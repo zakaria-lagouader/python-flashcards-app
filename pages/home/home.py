@@ -37,10 +37,28 @@ class HomePage(customtkinter.CTkScrollableFrame):
         self.add_button.grid(
             row=1,
             column=0,
-            columnspan=2,
             sticky="ew",
             ipady=8,
-            pady=10 
+            pady=10, 
+            padx=10  
+        )
+
+        # Stats button
+        self.stats_button = customtkinter.CTkButton(
+            master=self,
+            text="View Statistics",
+            font=("TkDefaultFont", 18),
+            cursor="hand2",
+            command=self.viewStats
+        )
+
+        self.stats_button.grid(
+            row=1,
+            column=1,
+            sticky="ew",
+            ipady=8,
+            pady=10, 
+            padx=10 
         )
 
         # FlashCardsList
@@ -59,3 +77,7 @@ class HomePage(customtkinter.CTkScrollableFrame):
     def addFlashCard(self):
         from pages import goTo
         goTo("addflashCard")
+
+    def viewStats(self):
+        from pages import goTo
+        goTo("showStats")

@@ -1,4 +1,4 @@
-from .home import HomePage
+from .home import HomePage, ShowStats
 from .flashcard import ShowFlashCard, AddFlashCard, EditFlashCard, TestCards
 from .card import AddCard, ShowCard, EditCard
 import customtkinter
@@ -20,6 +20,7 @@ class App(customtkinter.CTk):
 
         self.pages = {
             "home": HomePage,
+            "showStats": ShowStats,
             "showflashCard": ShowFlashCard,
             "addflashCard": AddFlashCard,
             "editflashCard": EditFlashCard,

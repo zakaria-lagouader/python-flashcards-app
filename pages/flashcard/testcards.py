@@ -1,3 +1,4 @@
+from models import LearnedWords
 import customtkinter
 
 
@@ -6,8 +7,9 @@ class TestCards(customtkinter.CTkFrame):
         super().__init__(master, **kwargs)
 
         self.flashcard = flashcard
-        cards = self.flashcard.cards()
-        self.current_card = cards[0]
+        self.cards = self.flashcard.cards()
+        self.card_index = 0
+        self.current_card = self.cards[self.card_index]
 
 
         # configure grid
@@ -44,13 +46,13 @@ class TestCards(customtkinter.CTkFrame):
             padx=10 
         )
 
-        self.card_info_translation = customtkinter.CTkLabel(
+        self.card_info_language = customtkinter.CTkLabel(
             master=self.card_info_frame,
             text="French:",
             font=("TkDefaultFont", 28),
         )
 
-        self.card_info_translation.pack(
+        self.card_info_language.pack(
             pady=10
         )
 
@@ -68,32 +70,14 @@ class TestCards(customtkinter.CTkFrame):
             master=self,
             fg_color="#FF0032",
             hover_color="#CD0404",
-            text="No"
-        )
-
-        self.no_button.grid(
-            row=2,
-            column=0,
-            sticky="ew",
-            ipady=8,
-            ipadx=8,
-            pady=10, 
-            padx=10
+            text="No",
+            command=self.onNoClick
         )
 
         self.yes_button = customtkinter.CTkButton(
             master=self,
-            text="Yes"
-        )
-
-        self.yes_button.grid(
-            row=2,
-            column=1,
-            sticky="ew",
-            ipady=8,
-            ipadx=8,
-            pady=10, 
-            padx=10
+            text="Yes",
+            command=self.onYesClick
         )
 
         self.animate_progress()
@@ -103,18 +87,104 @@ class TestCards(customtkinter.CTkFrame):
         next = current + 0.2
         if next >= 1 :
             self.progressbar.set(1)
+            self.toggle_translation(show=True)
         else:
             self.progressbar.set(next)
             app.after(1000, self.animate_progress, next)
 
+    def next_card(self):
+        if self.card_index < len(self.cards) - 1:
+            self.card_index += 1
+            self.current_card = self.cards[self.card_index]
+            self.toggle_translation(show=False)
+            self.animate_progress()
+        else:
+            self.finish()
 
+    def toggle_buttons(self, hide: bool):
+        if hide:
+            self.yes_button.grid_forget()
+            self.no_button.grid_forget()
+        else:
+            self.no_button.grid(
+                row=2,
+                column=0,
+                sticky="ew",
+                ipady=8,
+                ipadx=8,
+                pady=10, 
+                padx=10
+            )
 
+            self.yes_button.grid(
+                row=2,
+                column=1,
+                sticky="ew",
+                ipady=8,
+                ipadx=8,
+                pady=10, 
+                padx=10
+            )
 
+    def toggle_translation(self, show: bool):
+        if show:
+            self.card_info_language.configure(text="English:")
+            self.card_info_word.configure(text=self.current_card.translation)
+            self.toggle_buttons(hide=False)
+        else:
+            self.card_info_language.configure(text="French:")
+            self.card_info_word.configure(text=self.current_card.word)
+            self.toggle_buttons(hide=True)
 
+    def onNoClick(self):
+        LearnedWords.add(self.current_card.id, False)
+        self.next_card()
 
+    def onYesClick(self):
+        LearnedWords.add(self.current_card.id, True)
+        self.next_card()
 
-        
+    def finish(self):
+        self.card_info_frame.grid_forget()
+        self.yes_button.grid_forget()
+        self.no_button.grid_forget()
 
+        self.message_label = customtkinter.CTkLabel(
+            master=self,
+            text="You have Finished",
+            font=("TkDefaultFont", 40),
+        )
 
+        self.message_label.grid(
+            row=1,
+            column=0,
+            columnspan=2,
+            sticky="nsew",
+            ipady=8,
+            ipadx=8,
+            pady=(175, 10), 
+            padx=10 
+        )
+
+        self.back_button = customtkinter.CTkButton(
+            master=self,
+            text="Go Back",
+            command=self.back
+        )
+
+        self.back_button.grid(
+            row=2,
+            column=0,
+            columnspan=2,
+            sticky="nsew",
+            ipady=8,
+            ipadx=8,
+            pady=10, 
+            padx=10 
+        )
+
+    def back(self):
+        from pages import goTo
+        goTo("showflashCard", self.flashcard)
 
 
