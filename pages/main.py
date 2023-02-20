@@ -9,15 +9,17 @@ class App(customtkinter.CTk):
     def __init__(self):
         super().__init__()
 
+        # Window Title and Geometry
         self.title("Flashcards app")
         self.geometry("500x700")
 
-        # container to stack the pages
+        # Container to stack the pages
         self.container = customtkinter.CTkFrame(self)
         self.container.pack(side="top", fill="both", expand=True)
         self.container.grid_rowconfigure(0, weight=1)
         self.container.grid_columnconfigure(0, weight=1)
 
+        # List of all the pages
         self.pages = {
             "home": HomePage,
             "showStats": ShowStats,
@@ -37,20 +39,23 @@ class App(customtkinter.CTk):
         for widget in self.container.winfo_children():
             widget.destroy()
 
-        F = self.pages[page]
+        # Get page by name
+        Page = self.pages[page]
 
-        self.page = F(
+        # Render the page
+        self.current_page = Page(
             self.container,
             payload
         )
 
-        self.page.grid(
+        self.current_page.grid(
             row=0,
             column=0,
             sticky="nsew",
         )
 
 
+# Exports
 app = App()
 
 def goTo(page, payload = None):

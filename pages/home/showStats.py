@@ -41,6 +41,7 @@ class ShowStats(customtkinter.CTkFrame):
         # Plot words
         LearnedWords.plot_words(self.plot)
         
+        # For fixing date display
         self.fig.autofmt_xdate()
 
         self.canvas = FigureCanvasTkAgg(

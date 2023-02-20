@@ -7,7 +7,7 @@ class HomePage(customtkinter.CTkScrollableFrame):
         super().__init__(master, **kwargs)
 
         # configure grid
-        self.columnconfigure((0, 1), weight=1)
+        self.columnconfigure((0, 1), weight=1, uniform="fred")
 
         # Page Title
         self.page_title = customtkinter.CTkLabel(

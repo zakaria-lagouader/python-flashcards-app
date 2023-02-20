@@ -33,10 +33,10 @@ class LearnedWords:
         words_learned = df.groupby('Date')['Card_ID'].count().reset_index(name='num_words')
 
         # Create a bar chart
-        # plt.bar(words_learned['Date'], words_learned['num_words'])
+        plt.bar(words_learned['Date'], words_learned['num_words'])
 
         # Create a line plot
-        plt.plot(words_learned['Date'], words_learned['num_words'])
+        # plt.plot(words_learned['Date'], words_learned['num_words'])
 
         plt.locator_params(axis="y", integer=True, tight=True)
 
