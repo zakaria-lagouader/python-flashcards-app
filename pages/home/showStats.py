@@ -15,7 +15,7 @@ class ShowStats(customtkinter.CTkFrame):
         # Page Title
         self.page_title = customtkinter.CTkLabel(
             master=self,
-            text="Your Stats",
+            text="Vos Statistiques",
             font=("TkDefaultFont", 32),
         )
 
@@ -62,7 +62,7 @@ class ShowStats(customtkinter.CTkFrame):
 
         self.back_button = customtkinter.CTkButton(
             master=self, 
-            text="Back to Home Page",
+            text="Retour à la page d'accueil",
             command=self.backHome
         )
 

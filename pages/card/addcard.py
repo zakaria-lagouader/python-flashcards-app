@@ -13,7 +13,7 @@ class AddCard(customtkinter.CTkFrame):
         # Page Title
         self.page_title = customtkinter.CTkLabel(
             master=self,
-            text="Add Card",
+            text="Ajouter une Carte",
             font=("TkDefaultFont", 32),
         )
 
@@ -29,7 +29,7 @@ class AddCard(customtkinter.CTkFrame):
 
         self.word_label = customtkinter.CTkLabel(
             master=self, 
-            text="Word :",
+            text="Mot :",
         )
 
         self.word_label.grid(
@@ -42,7 +42,7 @@ class AddCard(customtkinter.CTkFrame):
 
         self.word_input = customtkinter.CTkEntry(
             master=self, 
-            placeholder_text="Word"
+            placeholder_text="Mot"
         )
 
         self.word_input.grid(
@@ -57,7 +57,7 @@ class AddCard(customtkinter.CTkFrame):
 
         self.translation_label = customtkinter.CTkLabel(
             master=self, 
-            text="Translation :",
+            text="Traduction :",
         )
 
         self.translation_label.grid(
@@ -70,7 +70,7 @@ class AddCard(customtkinter.CTkFrame):
 
         self.translation_input = customtkinter.CTkEntry(
             master=self, 
-            placeholder_text="Translation"
+            placeholder_text="Traduction"
         )
 
         self.translation_input.grid(
@@ -86,7 +86,7 @@ class AddCard(customtkinter.CTkFrame):
 
         self.add_button = customtkinter.CTkButton(
             master=self, 
-            text="Add Card",
+            text="Ajouter une Carte",
             command=self.addCard
         )
 
@@ -101,7 +101,7 @@ class AddCard(customtkinter.CTkFrame):
 
         self.cancel_button = customtkinter.CTkButton(
             master=self, 
-            text="cancel",
+            text="Annuler",
             fg_color="#576F72",
             hover_color="#7D9D9C",
             command=self.cancel

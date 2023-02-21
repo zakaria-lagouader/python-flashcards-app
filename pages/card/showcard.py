@@ -14,7 +14,7 @@ class ShowCard(customtkinter.CTkFrame):
         # Page Title
         self.page_title = customtkinter.CTkLabel(
             master=self,
-            text="Card details",
+            text="Détails de la Carte",
             font=("TkDefaultFont", 32),
         )
 
@@ -28,7 +28,7 @@ class ShowCard(customtkinter.CTkFrame):
 
         self.edit_button = customtkinter.CTkButton(
             master=self, 
-            text="Edit Card",
+            text="Modifier Carte",
             fg_color="#439A97",
             hover_color="#62B6B7",
             command=self.editCard
@@ -45,7 +45,7 @@ class ShowCard(customtkinter.CTkFrame):
 
         self.delete_button = customtkinter.CTkButton(
             master=self, 
-            text="Delete Card",
+            text="Supprimer Carte",
             fg_color="#FF0032",
             hover_color="#CD0404",
             command=self.deleteCard
@@ -99,7 +99,7 @@ class ShowCard(customtkinter.CTkFrame):
 
         self.back_button = customtkinter.CTkButton(
             master=self, 
-            text="Back to Home Page",
+            text="Retour à la page d'accueil",
             command=self.backHome
         )
 
@@ -116,7 +116,7 @@ class ShowCard(customtkinter.CTkFrame):
     def deleteCard(self):
         answer = askyesno(
             title='confirmation',
-            message='Are you sure that you want to delete this?'
+            message='vous souhaitez vraiment l\'effacer'
         )
 
         if answer:

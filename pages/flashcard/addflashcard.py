@@ -13,7 +13,7 @@ class AddFlashCard(customtkinter.CTkFrame):
         # Page Title
         self.page_title = customtkinter.CTkLabel(
             master=self,
-            text="Add flashCard",
+            text="Ajouter une FlashCard",
             font=("TkDefaultFont", 32),
         )
 
@@ -29,7 +29,7 @@ class AddFlashCard(customtkinter.CTkFrame):
 
         self.name_label = customtkinter.CTkLabel(
             master=self, 
-            text="Name :",
+            text="Nom :",
         )
 
         self.name_label.grid(
@@ -42,7 +42,7 @@ class AddFlashCard(customtkinter.CTkFrame):
 
         self.name_input = customtkinter.CTkEntry(
             master=self, 
-            placeholder_text="Name"
+            placeholder_text="Nom"
         )
 
         self.name_input.grid(
@@ -57,7 +57,7 @@ class AddFlashCard(customtkinter.CTkFrame):
 
         self.color_input = customtkinter.CTkButton(
             master=self, 
-            text="Choose Color",
+            text="Choisir une couleur",
             fg_color="black",
             hover="black",
             command=self.shooseColor
@@ -75,7 +75,7 @@ class AddFlashCard(customtkinter.CTkFrame):
 
         self.add_button = customtkinter.CTkButton(
             master=self, 
-            text="Add Flashcard",
+            text="Ajouter Flashcard",
             command=self.addFlashcard
         )
 
@@ -90,7 +90,7 @@ class AddFlashCard(customtkinter.CTkFrame):
 
         self.cancel_button = customtkinter.CTkButton(
             master=self, 
-            text="cancel",
+            text="Annuler",
             fg_color="#576F72",
             hover_color="#7D9D9C",
             command=self.cancel
@@ -107,7 +107,7 @@ class AddFlashCard(customtkinter.CTkFrame):
 
     def shooseColor(self):
         colors = askcolor(
-            title="Choose flashcard color", 
+            title="Choisir une couleur", 
             initialcolor=self.color_input.cget("fg_color")
         )
         if colors[1] != None:

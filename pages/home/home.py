@@ -12,7 +12,7 @@ class HomePage(customtkinter.CTkScrollableFrame):
         # Page Title
         self.page_title = customtkinter.CTkLabel(
             master=self,
-            text="FlashCards App",
+            text="Mes FlashCards",
             font=("TkDefaultFont", 32),
         )
 
@@ -28,7 +28,7 @@ class HomePage(customtkinter.CTkScrollableFrame):
 
         self.add_button = customtkinter.CTkButton(
             master=self,
-            text="Add a Flashcard",
+            text="Ajouter une Flashcard",
             font=("TkDefaultFont", 18),
             cursor="hand2",
             command=self.addFlashCard
@@ -46,7 +46,7 @@ class HomePage(customtkinter.CTkScrollableFrame):
         # Stats button
         self.stats_button = customtkinter.CTkButton(
             master=self,
-            text="View Statistics",
+            text="Voir les Statistiques",
             font=("TkDefaultFont", 18),
             cursor="hand2",
             command=self.viewStats

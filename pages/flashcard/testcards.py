@@ -48,7 +48,7 @@ class TestCards(customtkinter.CTkFrame):
 
         self.card_info_language = customtkinter.CTkLabel(
             master=self.card_info_frame,
-            text="French:",
+            text="Français:",
             font=("TkDefaultFont", 28),
         )
 
@@ -70,13 +70,15 @@ class TestCards(customtkinter.CTkFrame):
             master=self,
             fg_color="#FF0032",
             hover_color="#CD0404",
-            text="No",
+            text="Non",
             command=self.onNoClick
         )
 
         self.yes_button = customtkinter.CTkButton(
+            fg_color="#66bb6a",
+            hover_color="#43a047",
             master=self,
-            text="Yes",
+            text="Oui",
             command=self.onYesClick
         )
 
@@ -132,7 +134,7 @@ class TestCards(customtkinter.CTkFrame):
             self.card_info_word.configure(text=self.current_card.translation)
             self.toggle_buttons(hide=False)
         else:
-            self.card_info_language.configure(text="French:")
+            self.card_info_language.configure(text="Français:")
             self.card_info_word.configure(text=self.current_card.word)
             self.toggle_buttons(hide=True)
 
@@ -151,7 +153,7 @@ class TestCards(customtkinter.CTkFrame):
 
         self.message_label = customtkinter.CTkLabel(
             master=self,
-            text="You have Finished",
+            text="Vous avez Terminé",
             font=("TkDefaultFont", 40),
         )
 
@@ -168,7 +170,7 @@ class TestCards(customtkinter.CTkFrame):
 
         self.back_button = customtkinter.CTkButton(
             master=self,
-            text="Go Back",
+            text="Retour",
             command=self.back
         )
 

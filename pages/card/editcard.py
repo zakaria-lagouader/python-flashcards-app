@@ -13,7 +13,7 @@ class EditCard(customtkinter.CTkFrame):
         # Page Title
         self.page_title = customtkinter.CTkLabel(
             master=self,
-            text="Edit Card",
+            text="Modifier Carte",
             font=("TkDefaultFont", 32),
         )
 
@@ -29,7 +29,7 @@ class EditCard(customtkinter.CTkFrame):
 
         self.word_label = customtkinter.CTkLabel(
             master=self, 
-            text="Word :",
+            text="Mot :",
         )
 
         self.word_label.grid(
@@ -42,7 +42,7 @@ class EditCard(customtkinter.CTkFrame):
 
         self.word_input = customtkinter.CTkEntry(
             master=self, 
-            placeholder_text="Word"
+            placeholder_text="Mot"
         )
         self.word_input.insert(0, self.card.word)
 
@@ -58,7 +58,7 @@ class EditCard(customtkinter.CTkFrame):
 
         self.translation_label = customtkinter.CTkLabel(
             master=self, 
-            text="Translation :",
+            text="Traduction :",
         )
 
         self.translation_label.grid(
@@ -71,7 +71,7 @@ class EditCard(customtkinter.CTkFrame):
 
         self.translation_input = customtkinter.CTkEntry(
             master=self, 
-            placeholder_text="Translation"
+            placeholder_text="Traduction"
         )
 
         self.translation_input.insert(0, self.card.translation)
@@ -89,7 +89,7 @@ class EditCard(customtkinter.CTkFrame):
 
         self.edit_button = customtkinter.CTkButton(
             master=self, 
-            text="Edit Card",
+            text="Modifier Carte",
             command=self.editCard
         )
 
@@ -104,7 +104,7 @@ class EditCard(customtkinter.CTkFrame):
 
         self.cancel_button = customtkinter.CTkButton(
             master=self, 
-            text="cancel",
+            text="Annuler",
             fg_color="#576F72",
             hover_color="#7D9D9C",
             command=self.cancel

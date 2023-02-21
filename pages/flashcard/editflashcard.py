@@ -14,7 +14,7 @@ class EditFlashCard(customtkinter.CTkFrame):
         # Page Title
         self.page_title = customtkinter.CTkLabel(
             master=self,
-            text="Edit flashCard",
+            text="Modifier FlashCard",
             font=("TkDefaultFont", 32),
         )
 
@@ -30,7 +30,7 @@ class EditFlashCard(customtkinter.CTkFrame):
 
         self.name_label = customtkinter.CTkLabel(
             master=self, 
-            text="Name :",
+            text="Nom :",
         )
 
         self.name_label.grid(
@@ -43,7 +43,7 @@ class EditFlashCard(customtkinter.CTkFrame):
 
         self.name_input = customtkinter.CTkEntry(
             master=self, 
-            placeholder_text="Name"
+            placeholder_text="Nom"
         )
 
         self.name_input.insert(0, self.flashcard.name)
@@ -60,7 +60,7 @@ class EditFlashCard(customtkinter.CTkFrame):
 
         self.color_input = customtkinter.CTkButton(
             master=self, 
-            text="Choose Color",
+            text="Choisir une couleur",
             fg_color=self.flashcard.color,
             hover=self.flashcard.color,
             command=self.shooseColor
@@ -78,7 +78,7 @@ class EditFlashCard(customtkinter.CTkFrame):
 
         self.edit_button = customtkinter.CTkButton(
             master=self, 
-            text="Edit Flashcard",
+            text="Modifier Flashcard",
             command=self.editFlashcard
         )
 
@@ -93,7 +93,7 @@ class EditFlashCard(customtkinter.CTkFrame):
 
         self.cancel_button = customtkinter.CTkButton(
             master=self, 
-            text="cancel",
+            text="Annuler",
             fg_color="#576F72",
             hover_color="#7D9D9C",
             command=self.cancel
@@ -110,7 +110,7 @@ class EditFlashCard(customtkinter.CTkFrame):
 
     def shooseColor(self):
         colors = askcolor(
-            title="Choose flashcard color", 
+            title="Choisir une couleur", 
             initialcolor=self.color_input.cget("fg_color")
         )
         if colors[1] != None:

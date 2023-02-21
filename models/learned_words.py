@@ -42,5 +42,5 @@ class LearnedWords:
 
         # Add labels and title
         plt.set_xlabel('Date')
-        plt.set_ylabel('Number of Words Learned')
-        plt.set_title('Words Learned Every Day')
+        plt.set_ylabel('Nombre de mots appris')
+        plt.set_title('Mots appris chaque jour')

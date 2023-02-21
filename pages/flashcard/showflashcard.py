@@ -28,7 +28,7 @@ class ShowFlashCard(customtkinter.CTkScrollableFrame):
 
         self.edit_button = customtkinter.CTkButton(
             master=self, 
-            text="Edit FlashCard",
+            text="Modifier FlashCard",
             fg_color="#439A97",
             hover_color="#62B6B7",
             command=self.editFlashCard
@@ -45,7 +45,7 @@ class ShowFlashCard(customtkinter.CTkScrollableFrame):
 
         self.delete_button = customtkinter.CTkButton(
             master=self, 
-            text="Delete FlashCard",
+            text="Supprimer FlashCard",
             fg_color="#FF0032",
             hover_color="#CD0404",
             command=self.deleteFlashCard
@@ -62,7 +62,7 @@ class ShowFlashCard(customtkinter.CTkScrollableFrame):
 
         self.add_button = customtkinter.CTkButton(
             master=self, 
-            text="Add a Card",
+            text="Ajouter une Carte",
             command=self.addCard
         )
 
@@ -81,7 +81,7 @@ class ShowFlashCard(customtkinter.CTkScrollableFrame):
 
             self.test_button = customtkinter.CTkButton(
                 master=self, 
-                text="Start the test",
+                text="Démarrer le test",
                 command=self.startTest
             )
 
@@ -110,7 +110,7 @@ class ShowFlashCard(customtkinter.CTkScrollableFrame):
 
         self.back_button = customtkinter.CTkButton(
             master=self, 
-            text="Back to Home Page",
+            text="Retour à la page d'accueil",
             command=self.backHome
         )
 
@@ -132,7 +132,7 @@ class ShowFlashCard(customtkinter.CTkScrollableFrame):
     def deleteFlashCard(self):
         answer = askyesno(
             title='confirmation',
-            message='Are you sure that you want to delete this?'
+            message='vous souhaitez vraiment l\'effacer'
         )
 
         if answer:
